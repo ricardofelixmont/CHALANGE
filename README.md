@@ -10,6 +10,8 @@ campos: currency, value, change, perc, e timestamp.
 A captura (1) deve ocorrer a cada 20min, e a cada dia deve ser feita uma consolidação destas informações
 num único arquivo.
 A captura (2) deve ocorrer juntamente com esta consolidação e mantida num arquivo próprio.
+
+
 Estes dois arquivos devem ser enviados ao HDFS para processamento (o volume é baixo para utilização
 porém ainda assim serve para esta avaliação), onde seus conteúdos serão cruzados para conversão das
 cotações em dólar para a nossa moeda Real (R$), resultando num arquivo, no formato JSON, cujo nome
