@@ -8,11 +8,19 @@ import csv
 import os
 import configparser
 
+# Descobrindo o caminho do arquivo 'programa.ini'
+path_ini = os.path.abspath("programa.ini")
+lista_ini = path_ini.split("/")[:3]
+arquivo = ''
+for c in lista_ini:
+    arquivo += c +'/'
+
 # Acessando o caminho do arquivo 'p.ini'
+conf_file = arquivo + 'CHALANGE/servidor/ricardoFelix/bin/programa.ini'
+config = configparser.ConfigParser()
+config.read(conf_file, encoding='utf8')
 
-# Preciso alterar o path para o servidor:
-path = '/home/semantix/CHALANGE/servidor/'
-
+path = config.get('path', 'path_name') # Variavel path contem o caminho
 
 print('programa Iniciado')
 # Verifica se o arquivo .csv existe
