@@ -58,7 +58,7 @@ def cabecalho(moedas):
     print(cabecalho)
     return cabecalho
 
-nome_arquivo = path + 'ricardoFelix/crawler_crypto/' + 'crypto_' + data_pronta()[:10].strip()
+nome_arquivo = path + '/ricardoFelix/crawler_crypto/' + 'crypto_' + data_pronta()[:10].strip()
 # Se o arquivo nao existir, ele adiciona o cabeçalho
 if verificaExist(nome_arquivo) == False: # Verificando se o arquivo existe
     cabecalho = cabecalho(moedas)
