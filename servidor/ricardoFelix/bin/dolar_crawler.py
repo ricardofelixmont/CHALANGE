@@ -6,21 +6,8 @@ import csv
 import os
 import configparser
 
-# Descobrindo o caminho do arquivo 'programa.ini'
-path_ini = os.path.abspath("programa.ini")
-lista_ini = path_ini.split("/")[:3]
-arquivo = ''
-for c in lista_ini:
-    arquivo += c +'/'
-print(arquivo)
 
-# Acessando o caminho do arquivo 'p.ini'
-conf_file = arquivo + 'CHALANGE/servidor/ricardoFelix/bin/config.ini'
-config = configparser.ConfigParser()
-config.read(conf_file, encoding='utf8')
-
-path = config.get('path', 'path_name') # Variavel path contem o caminho
-print(path)
+path = "caminho_basico" # Variavel path contem o caminho
 
 # função para localizar e extrair o titulo da moeda 
 def moeda(html):
