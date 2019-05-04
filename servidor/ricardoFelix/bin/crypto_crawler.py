@@ -16,7 +16,7 @@ for c in lista_ini:
     arquivo += c +'/'
 
 # Acessando o caminho do arquivo 'p.ini'
-conf_file = arquivo + 'CHALANGE/servidor/ricardoFelix/bin/programa.ini'
+conf_file = arquivo + 'CHALANGE/servidor/ricardoFelix/bin/config.ini'
 config = configparser.ConfigParser()
 config.read(conf_file, encoding='utf8')
 

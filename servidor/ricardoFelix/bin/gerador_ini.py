@@ -9,7 +9,7 @@ path = ''
 for dir_ in path_list:
     path += dir_ + '/'
 
-caminho_ini = path +  'ricardoFelix/bin/programa.ini'
+caminho_ini = path +  'ricardoFelix/bin/config.ini'
 
 string = '[path]\n\n' + 'path_name = ' + path
 
