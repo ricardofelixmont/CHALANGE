@@ -20,7 +20,7 @@ config = configparser.ConfigParser()
 config.read(conf_file, encoding='utf8')
 
 path = config.get('path', 'path_name') # Variavel path contem o caminho
-
+print(path)
 
 # função para localizar e extrair o titulo da moeda 
 def moeda(html):
@@ -67,7 +67,8 @@ def data(r):
     return date
 
 def gravar(saida):
-    nome_arquivo = path + 'ricardoFelix/crawler_dolar/dolar_data.csv'
+    nome_arquivo = path + 'ricardoFelix/crawler_dolar/dolar_' + saida[-1][:10].strip() + '.csv'
+    print(nome_arquivo)
     #abertura do arquivo com append
     #Mudei a abertura do arquivo para um context manager.
     with open(nome_arquivo, 'a+') as f:
@@ -75,7 +76,7 @@ def gravar(saida):
         #verifica se o arquivo está vazio, e se estiver, escreve o cabeçalho.
         if os.stat(nome_arquivo).st_size == 0:
             writer.writerow(['Nome', 'Preço', 'Change', 'Percentual', 'Data'])
-            writer.writerow(saida)
+        writer.writerow(saida)
 
 if __name__ == '__main__':
 	
