@@ -54,7 +54,7 @@ def data(r):
     return date
 
 def gravar(saida):
-    nome_arquivo = path + 'ricardoFelix/crawler_dolar/dolar_' + saida[-1][:10].strip() + '.csv'
+    nome_arquivo = path + '/ricardoFelix/crawler_dolar/dolar_' + saida[-1][:10].strip() + '.csv'
     print(nome_arquivo)
     #abertura do arquivo com append
     #Mudei a abertura do arquivo para um context manager.
