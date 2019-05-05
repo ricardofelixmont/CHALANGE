@@ -2,10 +2,10 @@
 
 ##### CONSOLIDAÇÃO #####
 
-# Teste do software
-data=$(date +%d/%m/%Y)
-touch ~/ricardoFelix/crawler_dolar/arquivo_$data
-touch ~/ricardoFelix/crawler_crypto/arquivo_$data
+# Teste rapido
+# data=$(date +%d/%m/%Y)
+# touch ~/ricardoFelix/crawler_dolar/arquivo_$data
+# touch ~/ricardoFelix/crawler_crypto/arquivo_$data
 
 ### Transferencia Dolar ###
 # Descobrindo qual é o arquivo mais recente
