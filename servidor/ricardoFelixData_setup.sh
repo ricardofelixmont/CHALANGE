@@ -32,6 +32,7 @@ wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont
 # Modificando caminhos dos arquivos para a máquina atual...
 caminho=$(pwd)
 
+sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/formatando_json_elastic.py
 sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/crypto_crawler.py
 sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 

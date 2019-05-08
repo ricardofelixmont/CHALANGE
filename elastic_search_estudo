@@ -14,6 +14,9 @@ curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05" -H 'Content-Type: applica
 GET cotacao-crypto-2019-05-05/_settings
 
 
+curl -XDELETE 'http://localhost:9200/cotacao-crypto-2019-05-07'
+
+
 
 # Adicionando o alias:
 
@@ -28,7 +31,7 @@ curl -X POST "localhost:9200/_aliases" -H 'Content-Type: application/json' -d'
 
 # Adicionando conteudo em um index:
 # No exemplo abaixo o /doc/102 é o comando que vai colocar o documento json com id 102 no index cotacao-crypto-2019-05-05
-curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05/doc/102" -H 'Content-Type: application/json' -d'
+curl -X PUT "localhost:9200/cotacao-crypto-2019-05-07/doc/102" -H 'Content-Type: application/json' -d'
 {
 {"symbol":"BRL",
 "valor":"370,0"}
@@ -71,8 +74,6 @@ curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05/doc/103" -H 'Content-Type:
 
 
 
-
-
 $ cat requests
 { "index" : { "_index" : "test", "_id" : "1" } }
 { "field1" : "value1" }
@@ -84,7 +85,7 @@ $ cat requests
 # Enviando arquivos em massa para o Elastic
 
 # Funcionou
-curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/cotacao-crypto-2019-05-05/doc/_bulk --data-binary "@requests"; echo
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/cotacao-crypto-2019-05-05/doc/_bulk --data-binary "@requests"; echo	
 
 
 curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/cotacao-crypto-2019-05-05/doc/105/_bulk --data-binary "@requests"; echo
