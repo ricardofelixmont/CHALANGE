@@ -42,6 +42,8 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 (crontab -l ; echo "05 00 * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py")| crontab -
 
 
+# Trazendo o arquivo processado do HDFS...
+(crontab -l ; echo "07 00 * * * bash ~/ricardoFelix/bin/extrair_hdfs.sh")| crontab -
 
 # Próximos passos:
 # Fazer download das dependências do Bs4

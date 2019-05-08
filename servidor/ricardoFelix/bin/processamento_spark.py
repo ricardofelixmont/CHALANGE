@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.7
+
 from pyspark.sql import SparkSession
 from pyspark.sql import functions
 from pyspark import SparkContext
