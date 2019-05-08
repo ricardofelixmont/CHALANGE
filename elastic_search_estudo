@@ -1,0 +1,96 @@
+# Criando o índice:
+
+curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05" -H 'Content-Type: application/json' -d'
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 0
+    }    
+}                
+'
+
+
+# Mostrar o Index e suas configurações:
+GET cotacao-crypto-2019-05-05/_settings
+
+
+
+# Adicionando o alias:
+
+
+curl -X POST "localhost:9200/_aliases" -H 'Content-Type: application/json' -d'
+{
+    "actions" : [
+        { "add" : { "index" : "cotacao-crypto-2019-05-05", "alias" : "cotacao-cripto" } }
+    ]
+}
+'
+
+# Adicionando conteudo em um index:
+# No exemplo abaixo o /doc/102 é o comando que vai colocar o documento json com id 102 no index cotacao-crypto-2019-05-05
+curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05/doc/102" -H 'Content-Type: application/json' -d'
+{
+{"symbol":"BRL",
+"valor":"370,0"}
+{"symbol":"USD",
+"valor":"370,0"}
+{"symbol":"EUR",
+"valor":"370,0"}
+}
+'
+
+
+curl -X PUT "localhost:9200/cotacao-crypto-2019-05-05/doc/103" -H 'Content-Type: application/json' -d'
+{"widget": {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "image": { 
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "hOffset": 250,
+        "vOffset": 250,
+        "alignment": "center"
+    },
+    "text": {
+        "data": "Click Here",
+        "size": 36,
+        "style": "bold",
+        "name": "text1",
+        "hOffset": 250,
+        "vOffset": 100,
+        "alignment": "center",
+        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+    }
+}} 
+'
+
+
+
+
+
+$ cat requests
+{ "index" : { "_index" : "test", "_id" : "1" } }
+{ "field1" : "value1" }
+
+{ "index":{"cotacao-crypto-2019-05-05"} }
+{ "name":"john doe","age":25 }
+
+
+# Enviando arquivos em massa para o Elastic
+
+# Funcionou
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/cotacao-crypto-2019-05-05/doc/_bulk --data-binary "@requests"; echo
+
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/cotacao-crypto-2019-05-05/doc/105/_bulk --data-binary "@requests"; echo
+
+curl -s -H "Content-Type: application/x-ndjson" -X POST localhost:9200/cotacao-crypto-2019-05-05/doc/105/_bulk --data-binary "@requests"; echo
+
+
+
+

@@ -42,6 +42,7 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 (crontab -l ; echo "05 00 * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py")| crontab -
 
 # Próximos passos:
+# Fazer download das dependências do Bs4
 # 1 - Mover crypto_data.csv e crypto_dolar.csv para processados no hdfs
 # 2 - dar hdfs dfs -get no diretorio processado_data.json para o file system do linux
 # 3 - mover processado_data.json para transferidos no hdfs
