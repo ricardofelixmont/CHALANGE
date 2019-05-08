@@ -1,0 +1,7 @@
+#59 23 * * * python3 ~/ricardoFelix/bin/dolar_crawler.py
+#*/2 * * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh
+# */1 * * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py >> ~/ricardoFelix/log_do_processamento.log 2>&1
+#*/1 * * * * bash ~/ricardoFelix/bin/extrair_hdfs.sh
+
+*/1 * * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py >> ~/ricardoFelix/log_do_processamento.log 2>&1
+

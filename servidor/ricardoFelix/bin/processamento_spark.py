@@ -18,9 +18,9 @@ nome_dolar_arquivo = 'dolar_' + data_ontem + '.csv'
 # Crypto:
 nome_crypto_arquivo = 'crypto_' + data_ontem + '.csv'
 
-caminho_dolar_arquivo = '/user/hive/warehouse/' + nome_dolar_arquivo
-caminho_crypto_arquivo = '/user/hive/warehouse/' + nome_crypto_arquivo
-caminho_saida_json = '/user/hive/warehouse/processado_' + data_ontem
+caminho_dolar_arquivo = '/user/ricardoFelix/input/' + nome_dolar_arquivo
+caminho_crypto_arquivo = '/user/ricardoFelix/input/' + nome_crypto_arquivo
+caminho_saida_json = '/user/ricardoFelix/output/processado_' + data_ontem
 
 # 1 - Lendo o arquivo dolar e extraindo o valor...
 dolar = spark.read.option("delimiter",";").option("header", True).csv(caminho_dolar_arquivo)
