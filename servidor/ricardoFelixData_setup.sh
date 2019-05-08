@@ -39,7 +39,7 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 (crontab -l ; echo "*/20 * * * * python3 ~/ricardoFelix/bin/crypto_crawler.py")| crontab -
 (crontab -l ; echo "59 23 * * * python3 ~/ricardoFelix/bin/dolar_crawler.py")| crontab -
 (crontab -l ; echo "00 00 * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh")| crontab -
-(crontab -l ; echo "05 00 * * * bash ~/ricardoFelix/bin/processamento_spark.py")| crontab -
+(crontab -l ; echo "05 00 * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py")| crontab -
 
 # Próximos passos:
 # 1 - Mover crypto_data.csv e crypto_dolar.csv para processados no hdfs
