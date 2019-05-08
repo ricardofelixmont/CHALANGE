@@ -32,11 +32,11 @@ wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont
 caminho=$(pwd)
 
 sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/crypto_crawler.py
-sed -i "s|caminho_basico|$caminho|" ~/ricardoFelix/bin/dolar_crawler.py
+sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 
 
 # Agendando crontab para iniciar os crawlers...
-(crontab -l ; echo "*/1 * * * * python3 ~/ricardoFelix/bin/crypto_crawler.py")| crontab -
-(crontab -l ; echo "*/1 * * * * python3 ~/ricardoFelix/bin/dolar_crawler.py")| crontab -
-(crontab -l ; echo "*/1 * * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh")| crontab -
+(crontab -l ; echo "*/2 * * * * python3 ~/ricardoFelix/bin/crypto_crawler.py")| crontab -
+(crontab -l ; echo "59 23 * * * python3 ~/ricardoFelix/bin/dolar_crawler.py")| crontab -
+(crontab -l ; echo "00 00 * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh")| crontab -
 
