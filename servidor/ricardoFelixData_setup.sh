@@ -29,6 +29,7 @@ wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/transferir_para_hdfs.sh
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/processamento_spark.py
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/extrair_hdfs.sh
+wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/formatando_json_elastic.py
 # Modificando caminhos dos arquivos para a máquina atual...
 caminho=$(pwd)
 
@@ -47,3 +48,7 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 
 # Trazendo o arquivo processado do HDFS...
 (crontab -l ; echo "05 00 * * * bash ~/ricardoFelix/bin/extrair_hdfs.sh >> ~/ricardoFelix/logs/log_extrair_hdfs.log 2>&1")| crontab -
+
+# Indexando dados no Elastic
+(crontab -l ; echo "07 00 * * * bash ~/ricardoFelix/bin/formatando_json_elastic.py >> ~/ricardoFelix/logs/log_formatando_json.log 2>&1")| crontab -
+
