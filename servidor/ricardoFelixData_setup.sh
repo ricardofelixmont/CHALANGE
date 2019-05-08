@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Criação de Arvore de diretórios no Linux FS
 echo "Criando arvore de diretórios..."
 mkdir -p ricardoFelix/
@@ -27,6 +26,7 @@ echo "Baixando arquivos necessários..."
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/crypto_crawler.py
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/dolar_crawler.py
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/transferir_para_hdfs.sh
+wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/processamento_spark.py
 
 # Modificando caminhos dos arquivos para a máquina atual...
 caminho=$(pwd)
@@ -40,6 +40,8 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 (crontab -l ; echo "59 23 * * * python3 ~/ricardoFelix/bin/dolar_crawler.py")| crontab -
 (crontab -l ; echo "00 00 * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh")| crontab -
 (crontab -l ; echo "05 00 * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py")| crontab -
+
+
 
 # Próximos passos:
 # Fazer download das dependências do Bs4
