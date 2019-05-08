@@ -27,7 +27,7 @@ wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/dolar_crawler.py
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/transferir_para_hdfs.sh
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/processamento_spark.py
-
+wger -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/extrair_hdfs.sh
 # Modificando caminhos dos arquivos para a máquina atual...
 caminho=$(pwd)
 
