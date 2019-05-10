@@ -45,11 +45,10 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 (crontab -l ; echo "00 00 * * * bash ~/ricardoFelix/bin/transferir_para_hdfs.sh >> ~/ricardoFelix/logs/log_transf_hdfs.log 2>&1")| crontab -
 
 # Processamento com pySpark...
-(crontab -l ; echo "02 00 * * * spark-submit ~/ricardoFelix/bin/processamento_spark.py >> ~/ricardoFelix/logs/log_process_spark.log 2>&1")| crontab - 
+(crontab -l ; echo "02 00 * * * bash ~/ricardoFelix/bin/start_spark.sh >> ~/ricardoFelix/logs/log_process_spark.log 2>&1")| crontab - 
 
 # Trazendo o arquivo processado do HDFS...
 (crontab -l ; echo "05 00 * * * bash ~/ricardoFelix/bin/extrair_hdfs.sh >> ~/ricardoFelix/logs/log_extrair_hdfs.log 2>&1")| crontab -
 
 # Indexando dados no Elastic
-(crontab -l ; echo "07 00 * * * bash ~/ricardoFelix/bin/formatando_json_elastic.py >> ~/ricardoFelix/logs/log_formatando_json.log 2>&1")| crontab -
-
+(crontab -l ; echo "07 00 * * * bash ~/ricardoFelix/bin/indexacao_elastic.sh >> ~/ricardoFelix/logs/log_indexa_elastic.log 2>&1")| crontab -

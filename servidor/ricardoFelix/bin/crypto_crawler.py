@@ -12,7 +12,6 @@ import configparser
 path = "caminho_basico" # Variavel path contem o caminho
 
 
-print('programa Iniciado')
 # Verifica se o arquivo .csv existe
 def verificaExist(nome):
     return os.path.exists(nome)
@@ -77,3 +76,4 @@ for c in range(1,26):
     ref_arquivo = csv.writer(open(nome_arquivo, 'a+'), delimiter=';')
     ref_arquivo.writerow(lista)
 
+print("Gravado com sucesso..")
