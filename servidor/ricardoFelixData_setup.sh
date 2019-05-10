@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Instalando Requisitos para os crawlers...
+pip3 install requests
+pip3 install beautifulsoup4
+pip install requests
+pip install beautifulsoup4
+sudo apt-get install zip unzip 
+sudo yum install zip
+sudo yum install unzip
+
 # Criação de Arvore de diretórios no Linux FS
 echo "Criando arvore de diretórios..."
 mkdir -p ricardoFelix/
