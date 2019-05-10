@@ -52,3 +52,4 @@ sed -i "s|caminho_basico|${caminho}|" ~/ricardoFelix/bin/dolar_crawler.py
 
 # Indexando dados no Elastic
 (crontab -l ; echo "07 00 * * * bash ~/ricardoFelix/bin/indexacao_elastic.sh >> ~/ricardoFelix/logs/log_indexa_elastic.log 2>&1")| crontab -
+

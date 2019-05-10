@@ -2,6 +2,9 @@
 
 ##### CONSOLIDAÇÃO #####
 
+source /etc/hadoop/conf/hadoop-env.sh
+source /etc/spark/conf/spark-env.sh
+
 ### Transferencia Dolar ###
 # Descobrindo qual é o arquivo mais recente
 data_ontem=$(date -d "-1 days" "+%Y-%m-%d")
