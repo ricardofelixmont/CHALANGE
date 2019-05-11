@@ -78,17 +78,17 @@ curl -X POST "http://localhost:5601/api/kibana/dashboards/import?exclude=index-p
         "description": "",
         "version": 1,
         "kibanaSavedObjectMeta": {
-          "searchSourceJSON": "{\"index\":\"cotacao-crypto-2019-05-09\",\"filter\":[{\"$state\":{\"store\":\"appState\"},\"exists\":{\"field\":\"Symbol\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"cotacao-crypto-2019-05-09\",\"key\":\"Symbol\",\"negate\":false,\"type\":\"exists\",\"value\":\"exists\"}}],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+          "searchSourceJSON": "{\"index\":\"crypto-cotacao-'$data_ontem'\",\"filter\":[{\"$state\":{\"store\":\"appState\"},\"exists\":{\"field\":\"Symbol\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"crypto-cotacao-'$data_ontem'\",\"key\":\"Symbol\",\"negate\":false,\"type\":\"exists\",\"value\":\"exists\"}}],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
         }
       }
     },
     {
-      "id": "cotacao-crypto-2019-05-09",
+      "id": "crypto-cotacao-'$data_ontem'",
       "type": "index-pattern",
       "updated_at": "2019-05-10T19:00:51.056Z",
       "version": 21,
       "attributes": {
-        "title": "cotacao-crypto-2019-05-09",
+        "title": "crypto-cotacao-'$data_ontem'",
         "timeFieldName": "execution_time",
         "fields": "[{\"name\":\"Name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"Price (USD)\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"Symbol\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"change24H\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"code\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"price (BTC)\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"priceReal\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"timestamp\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"volume24h\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false}]"
       }
@@ -99,7 +99,7 @@ curl -X POST "http://localhost:5601/api/kibana/dashboards/import?exclude=index-p
       "updated_at": "2019-05-10T10:16:51.751Z",
       "version": 1,
       "attributes": {
-        "title": "Crypto",
+        "title": "crypto-cotacao-'$data_ontem'",
         "hits": 0,
         "description": "",
         "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":6,\"h\":3,\"i\":\"1\"},\"version\":\"6.2.3\",\"type\":\"visualization\",\"id\":\"08ec0c80-730c-11e9-8a20-63d23bf24762\"}]",
@@ -113,3 +113,6 @@ curl -X POST "http://localhost:5601/api/kibana/dashboards/import?exclude=index-p
     }
   ]
 }'
+
+data_ontem=$(date -d "-1 days" "+%Y-%m-%d")
+zip ~/ricardoFelix/processados_json/indexados/indexados.zip ~/ricardoFelix/processados_json/processado_$data_ontem.json
