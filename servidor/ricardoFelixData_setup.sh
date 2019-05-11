@@ -36,6 +36,7 @@ wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/formatando_json_elastic.py
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/start_spark.sh
 wget -c -P ~/ricardoFelix/bin https://raw.githubusercontent.com/ricardofelixmont/CHALANGE/master/servidor/ricardoFelix/bin/indexacao_elastic.sh
+
 # Modificando caminhos dos arquivos para a máquina atual...
 caminho=$(pwd)
 
